@@ -1,0 +1,8 @@
+{
+  "name": "Remix: VendorBridge",
+  "description": "A modern, professional enterprise Procurement \u0026 Vendor Management ERP system with structured workflows, vendor management, Quotation comparisons, POs, and dynamic analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

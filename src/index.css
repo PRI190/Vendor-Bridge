@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Specifying highly calibrated clean, bright corporate lighting and emerald accents */
+  --color-slate-950: #f8fafc; /* Beautiful bright off-white workspace background */
+  --color-slate-900: #ffffff; /* Elegant pure white card container layers */
+  --color-slate-850: #f1f5f9; /* Soft light-gray sub-compartments */
+  --color-slate-800: #e2e8f0; /* Gentle and clean border lines */
+  --color-slate-755: #cbd5e1; /* Slightly darker grey for hover borders */
+  --color-slate-750: #cbd5e1; 
+  --color-slate-700: #94a3b8; /* Mid gray */
+  --color-slate-600: #64748b; /* Secondary gray */
+  --color-slate-500: #475569; /* Accessible bold grey */
+  --color-slate-400: #334155; /* Neutral slate text */
+  --color-slate-300: #1e293b; /* Deep high contrast readable charcoal text */
+  --color-slate-200: #0f172a; /* Ultra dark body text headings */
+  --color-slate-100: #020617; /* Absolute solid display blacks */
+  
+  --color-emerald-400: #065f46; /* High readability dark green for texts */
+  --color-emerald-500: #047857; /* Safe emerald green for icons / links */
+  --color-emerald-600: #059669; /* Rich active green */
+  --color-emerald-950: #ecfdf5; /* Gentle eye-soothing soft mint green background tint */
+}
+
+/* Force light mode background defaults on body */
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+/* Intelligently coerce dark-theme text selections into stunning visible light-theme colors */
+.text-white {
+  color: #0f172a !important;
+}
+
+/* Ensure buttons / solid overlays retain their white label colors */
+button.text-white,
+button .text-white,
+button span,
+button.bg-emerald-600,
+button.bg-emerald-600 *,
+.bg-emerald-600,
+.bg-emerald-650,
+.bg-emerald-600 *,
+.bg-gradient-to-r,
+.bg-gradient-to-r *,
+.bg-blue-600,
+.bg-blue-600 *,
+.bg-purple-600,
+.bg-purple-600 *,
+.bg-rose-600,
+.bg-rose-600 * {
+  color: #ffffff !important;
+}
+
+/* Specific component text override for legibility */
+.font-mono.bg-emerald-950,
+.font-mono.bg-emerald-955,
+.text-emerald-400,
+span.text-emerald-400 {
+  color: #047857 !important;
+  background-color: #ecfdf5 !important;
+  border-color: #a7f3d0 !important;
+}
+
+/* Re-adjust custom elements to guarantee full contrast */
+input, select, textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Media Layout Settings */
+@media print {
+  /* Hide overall headers, sidebars, search elements, and dashboard */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Selectively reveal the active printable invoice card */
+  .printable-invoice-container, 
+  .printable-invoice-container * {
+    visibility: visible;
+  }
+  
+  .printable-invoice-container {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 30px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Force high paper contrast on texts */
+  .printable-invoice-container .text-white,
+  .printable-invoice-container p,
+  .printable-invoice-container span,
+  .printable-invoice-container h2,
+  .printable-invoice-container h1,
+  .printable-invoice-container td,
+  .printable-invoice-container th {
+    color: #0f172a !important;
+  }
+
+  .printable-invoice-container .grand-total {
+    color: #047857 !important;
+  }
+}
